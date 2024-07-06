@@ -1,0 +1,73 @@
+from flask import Flask, render_template, request, redirect, url_for
+from controller import *
+from werkzeug.utils import secure_filename
+from PIL import Image
+import os
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
+
+@app.route("/")
+def index():
+    title = "Home"
+    return render_template("index.html", title=title)
+
+@app.route('/login')
+def login():
+    title = 'Login'
+    return render_template("login.html", title=title)
+
+@app.route('/servicios')
+def paginaServicios():
+    title = 'Servicios'
+    return render_template("servicios.html",title=title)
+
+@app.route('/quienesomos')
+def paginaQuienesSomos():
+    title = 'Staff'
+    return render_template("quienesomos.html",title=title)
+
+@app.route('/notimascotas')
+def paginaNotiMascotas():
+    title = 'Noti Mascotas'
+    return render_template("notimascotas.html",title=title)
+
+@app.route('/error404')
+def paginaError404():
+    title = 'Error 404'
+    return render_template("error404.html",title=title)
+
+@app.route('/administrador')
+def paginaAdministrador():
+    title = 'Administrador Tienda'
+    productos = obtenerProducto()
+    return render_template("administrador.html", title=title, productos=productos)
+
+@app.route('/nuevoProducto', methods=['GET'])
+def nuevoProducto():
+    title = 'Nuevo Producto'
+    return render_template("nuevoProducto.html",title=title)
+
+@app.route('/insertarProducto', methods=['POST'])
+def cargarProducto():
+    nombreProducto = request.form.get('nombre')
+    descripcionProducto = request.form.get('descripcion')
+    precioProducto = request.form.get('precio')
+    imagenProducto = request.files.get('imagen')
+    if imagenProducto:
+        filename = secure_filename(imagenProducto.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
+        img = Image.open(imagenProducto)
+        img = img.resize((300,300))
+        img.save(filepath)
+
+        imagen_url = url_for('static', filename=f'imagenes/{filename}')
+
+        result = insertarProducto(nombreProducto,descripcionProducto,precioProducto,imagen_url)
+        print(result)
+        return redirect("/administrador")
+    
+    return "Error al guardar el producto"
+
+

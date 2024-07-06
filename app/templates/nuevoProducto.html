@@ -1,0 +1,30 @@
+{% include 'defaults/navbar.html' %}
+<main>
+    <div class="mb-3 pt-3 d-flex justify-content-between container">
+        <h2 class="text-success fw-bold">NUEVO PRODUCTO</h2>
+    </div>
+    <div class="container py-3">
+        <form class="row g-3" method="POST" action="/insertarProducto" enctype="multipart/form-data">
+            <div class="col-12">
+              <label for="inputNombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Ej Collar" required>
+            </div>
+            <div class="col-12">
+                <label for="areaDescripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="areaDescripcion" name="descripcion" rows="3" required></textarea>
+              </div>
+            <div class="col-12">
+              <label for="inputPrecio" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="inputPrecio" name="precio" placeholder="$0.000.000" required>
+            </div>
+            <div class="col-12">
+              <label for="inputImagen" class="form-label">Foto</label>
+              <input type="file" class="form-control" id="inputImagen" name="imagen" required>
+            </div>            
+            <div class="col-12">
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+          </form>
+    </div>
+</main>
+{% include 'defaults/footer.html' %}

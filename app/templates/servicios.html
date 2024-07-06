@@ -1,0 +1,108 @@
+{% include 'defaults/navbar.html' %}
+    <section id="general"; class="G1">
+        <div class="container">
+            <div>
+            <h1 class="TG0">Nuestros Servicios</h1>
+            </div>
+            <h1 class="TG1">En "Patotas"contamos con un equipo altamente capacitado y experimentado en el cuidado animal tanto en lo relacionado a la medicina como a la estetica.
+                25 años de experiencia en el rubro, avalan nuestra trayectoria y compromiso
+            </h1>
+            
+        </div>
+    </section>
+    <section id="atencionMedicaClinica">
+        <div class="AT1">
+            <div class="TextoVet" >   
+                <h2>Atención Médica Veterinaria las 24hs</h2>
+                <h5>Ademas de la atencion de forma particular, ofrecemos los siguientes planes prepagos mensuales con cobertura en todos los servicios</h5>
+            </div>
+            <div class="ATPlanes">
+                <div>
+                    <button class="BPBlack">Plan Black</button> 
+                    <p class="textoPlanesPrepaga">Todos los servicios bonificados (Incluye: un servicio de cada tipo x mes)</p>
+                    
+                </div>
+                <div>
+                    <button class="BPFlex">Plan Flex</button>
+                    <p class="textoPlanesPrepaga">Dos servicios bonificados al mes, el afiliado elige cual usar (Consultas medicas - Peluqueria -Guarderia) </p>
+                </div>
+                <div>
+                    <button class="BPSelect">Plan Select</button>
+                    <p class="textoPlanesPrepaga">40% de descuento en todos los servicios a utilizar en el mes</p>
+                </div>
+                
+            </div>
+            
+                
+            </div>
+        </div>
+    </section>
+    <section id="atencionEnDomicilio"; class="AT4">
+        <div >
+            <div class="TextoDomi"> 
+                <h2>Servicio de Atencion Medica Veterinaria a domicilio las 24 horas <br> (Con prioridad a los clientes suscriptos al servicio de medicina prepaga) </h2>
+             
+                
+            
+        
+        
+    </section>
+    
+    <section id="peluqueria">
+        <div class="AT2">
+            <div class="textoPel">
+                <h2>Peluqueria Canina</h2>
+            </div>
+            
+            <div class="preciosPeluqueria">
+                <div class="textoPreciosPeluqueria">
+                    <img src="{{url_for('static', filename='img/Peluqueria1.jpg')}}"  alt="Cortes razas grandes">
+                    <h6 class="textoCortes">Cortes razas grandes</h6>
+                    <h5 class="textoCortes">$12000</h5>
+                    <button class="btn btn-primary">Reservar Turno</button>
+                </div>
+                <div class="textoPreciosPeluqueria">
+                    <img src="{{url_for('static', filename='img/Peluqueria2.jpg')}}""  alt="Cortes razas pequeñas">
+                    <h6 class="textoCortes">Cortes razas pequeñas</h6>
+                    <h5 class="textoCortes">$8000</h5>
+                    <button class="btn btn-primary">Reservar Turno</button>
+                </div>
+                <div class="textoPreciosPeluqueria">
+                    <img src="{{url_for('static', filename='img/Peluqueria3.jpg')}}""  alt="Lavado y despulgado">
+                    <h6 class="textoCortes">Lavado y despulgado</h6>
+                    <h5 class="textoCortes">$5000</h5>
+                    <button class="btn btn-primary">Reservar Turno</button>
+                </div>
+                <div class="textoPreciosPeluqueria">
+                    <img src="{{url_for('static', filename='img/Peluqueria4.jpg')}}""  alt="Promoción: Lavado + despulgado + Corte">
+                    <h6 class="textoCortes">En promoción: Lavado + despulgado + Corte</h6>
+                    <h5 class="textoCortes">$15000</h5>
+                    <button class="btn btn-primary">Reservar Turno</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="guarderia" class="AT3">
+        <div class="contenedorGuarderia">
+            <div class="textoGuarderia">
+            <h2>Servicio de Guardería Canina</h2>
+            </div>
+            
+            <div>
+                <img src="{{url_for('static', filename='img/guarderia1.png')}}"" alt="Guardería Canina" class="imagenGuarderia">
+            </div>
+            <div class="textoGuarderia2">
+                <ul>
+                    <li>Todos los días del año</li>
+                    <li>Servicio bonificado 100% dentro del "Plan Black"</li>
+                    <li>Amplio horario de atencion, desde las 8 hasta las 20 hs</li>
+                </ul>
+                <button class="btn btn-primary">Envianos tu consulta</button>
+            </div>
+        </div>
+    </section>
+    
+
+    </main>
+{% include 'defaults/footer.html'%}
