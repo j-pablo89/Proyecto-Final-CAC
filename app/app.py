@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from controller import *
 from werkzeug.utils import secure_filename
 from PIL import Image
@@ -6,16 +6,35 @@ import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
+app.secret_key = os.urandom(20)
 
 @app.route("/")
 def index():
-    title = "Home"
+    title = 'Home'
     return render_template("index.html", title=title)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    title = 'Login'
-    return render_template("login.html", title=title)
+    if request.method == 'POST':
+        inputUsuario = request.form.get('inputUsuario')
+        inputClave = request.form.get('inputClave')
+        result = loginUsuario(inputUsuario, inputClave)
+
+        if result:
+            session['logged_in'] = True
+            session['username'] = inputUsuario
+            return redirect("/")
+        else:
+            error = 'Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo'
+            return render_template('login.html', error=error)
+    else:
+        return render_template("login.html", error=None)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    session.pop('usuario', None)
+    return redirect("/")
 
 @app.route('/servicios')
 def paginaServicios():
@@ -31,6 +50,17 @@ def paginaQuienesSomos():
 def paginaNotiMascotas():
     title = 'Noti Mascotas'
     return render_template("notimascotas.html",title=title)
+
+@app.route('/tienda')
+def paginaTienda():
+    title = 'Tienda'
+    productos = obtenerProducto()
+    return render_template("tienda.html", title=title, productos=productos)
+
+@app.route('/contacto')
+def paginaContacto():
+    title = 'Contacto'
+    return render_template("contacto.html", title=title)
 
 @app.route('/error404')
 def paginaError404():

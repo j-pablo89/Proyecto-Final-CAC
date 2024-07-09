@@ -115,79 +115,7 @@
                     </div>
                 </div>
             </section>
-            <section class="section4" id="contactoForm">
-                <h2 class="centradoTextoTitulo margenSuperior">Formulario de Contacto</h2>
-                <form id="contactForm" onsubmit="return validateForm()">
-                    <div class="input-group">
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="name">
-                        <span id="nameError" class="error"></span>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email">
-                        <span id="emailError" class="error"></span>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="phone">Teléfono:</label>
-                        <input type="tel" id="phone" name="phone">
-                        <span id="phoneError" class="error"></span>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="plan">Plan Contratado</label>
-                        <select id="plan" name="plan">
-                            <option value="">Seleccione...</option>
-                            <option value="black">Plan Black</option>
-                            <option value="flex">Plan Flex</option>
-                            <option value="select">Plan Select</option>
-                            <option value="sin">Sin plan</option>
-                        </select>
-                        <span id="planError" class="error"></span>
-                    </div>
-                        
-                    <div class="input-group">
-                        <span style="font-weight: 500; font-style: oblique;">Mascota: </span><br>
-                        <div class="grupoRadio">
-                            <input type="radio" id="perro" name="gender" value="perro" class="radioButton">
-                            <label for="perro" class="espacioDerecha">Perro <i class="fa-solid fa-dog"></i></label>
-
-                            <input type="radio" id="gato" name="gender" value="gato" class="radioButton">
-                            <label for="gato" class="espacioDerecha">Gato <i class="fa-solid fa-cat"></i></label>
-
-                            <input type="radio" id="otro" name="gender" value="otro" class="radioButton">
-                            <label for="otro" class="espacioDerecha">Otro <i class="fa-solid fa-question"></i></label>
-
-                            <span id="genderError" class="error"></span>
-                        </div>
-                        
-                    </div>
             
-                    <div class="input-group ">
-                        <label for="image" class="margenLateral">Subir Imagen:</label>
-                        <input type="file" id="image" name="image" class="margenLateral">
-                        <span id="imageError" class="error"></span>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="message">Mensaje:</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
-                        <span id="messageError" class="error"></span>
-                    </div>
-                    <div class="centradoTexto">
-                        <input type="submit" value="Enviar" class="btn btn-primary" >
-                    </div>
-                    
-                </form>
-
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <p id="successMessage" class="textoTituloCarrusel">Mensaje enviado</p>
-                    </div>
-                </div>
-            </section>
         </div> 
     </main>
 {% include 'defaults/footer.html' %}

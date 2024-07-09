@@ -1,6 +1,16 @@
 import pymysql
 from database import conectarMySQL
 
+def loginUsuario(logUsuario, logClave):
+    conexion = conectarMySQL()
+    with conexion.cursor() as cursor:
+        stringSQL = "SELECT * FROM usuarios WHERE usuario = %s and clave = %s"
+        cursor.execute(stringSQL,(logUsuario,logClave,))
+        usuario = cursor.fetchone()
+        conexion.commit()
+        conexion.close()
+        return usuario
+
 def obtenerProducto():
     conexion = conectarMySQL()
     productos = []

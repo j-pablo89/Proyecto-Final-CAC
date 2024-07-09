@@ -41,7 +41,7 @@ a:hover{
     
 }
 .nav-link{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     color: #f8fdfd;
 }
@@ -368,7 +368,7 @@ label{
         
     }
     .nav-link{
-        font-size: 20px;
+        font-size: 15px;
         color: #f8fdfd;
     }
     
@@ -682,7 +682,7 @@ label{
         
     }
     .nav-link{
-        font-size: 20px;
+        font-size: 15px;
         color: #f8fdfd;
     }
     

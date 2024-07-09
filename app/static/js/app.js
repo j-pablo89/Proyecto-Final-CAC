@@ -1,52 +1,52 @@
-verificarLogin();
-document.getElementById('authButtonOut').addEventListener('click', () =>{
-    sessionStorage.removeItem('usuario');
-    const authButtonOut = document.getElementById('authButtonOut');
-    authButtonOut.className.add('d-none');
-    const authButton = document.getElementById('authButton');
-    authButton.className.remove('d-none');
-    const labelLoginContainer = document.getElementById('labelLoginContainer');
-    labelLoginContainer.classList.remove('d-none');
-    const itemAdmin = document.getElementById('itemAdmin');
-    itemAdmin.classList.add('d-none');
+// verificarLogin();
+// document.getElementById('authButtonOut').addEventListener('click', () =>{
+//     sessionStorage.removeItem('usuario');
+//     const authButtonOut = document.getElementById('authButtonOut');
+//     authButtonOut.className.add('d-none');
+//     const authButton = document.getElementById('authButton');
+//     authButton.className.remove('d-none');
+//     const labelLoginContainer = document.getElementById('labelLoginContainer');
+//     labelLoginContainer.classList.remove('d-none');
+//     const itemAdmin = document.getElementById('itemAdmin');
+//     itemAdmin.classList.add('d-none');
     
-});
+// });
 
 
-const usuarioPredefinido = 'Administrador';
-const clavePredefinida = 'adm123456';
+// const usuarioPredefinido = 'Administrador';
+// const clavePredefinida = 'adm123456';
 
-function loguearse(){
-    const inputUsuario = document.getElementById('inputUsuario').value;
-    const inputClave = document.getElementById('inputClave').value;
-    if(inputUsuario === usuarioPredefinido && inputClave === clavePredefinida){
-        sessionStorage.setItem('usuario','login');
-        const labelLoginContainer = document.getElementById('labelLoginContainer');
-        labelLoginContainer.classList.add('d-none');
-        const itemAdmin = document.getElementById('itemAdmin');
-        itemAdmin.classList.remove('d-none');
-        const authButton = document.getElementById('authButton');
-        authButton.classList.add('d-none');
-        const authButtonOut = document.getElementById('authButtonOut');
-        authButtonOut.classList.remove('d-none');
-        window.location="/";
-    }
-};
+// function loguearse(){
+//     const inputUsuario = document.getElementById('inputUsuario').value;
+//     const inputClave = document.getElementById('inputClave').value;
+//     if(inputUsuario === usuarioPredefinido && inputClave === clavePredefinida){
+//         sessionStorage.setItem('usuario','login');
+//         const labelLoginContainer = document.getElementById('labelLoginContainer');
+//         labelLoginContainer.classList.add('d-none');
+//         const itemAdmin = document.getElementById('itemAdmin');
+//         itemAdmin.classList.remove('d-none');
+//         const authButton = document.getElementById('authButton');
+//         authButton.classList.add('d-none');
+//         const authButtonOut = document.getElementById('authButtonOut');
+//         authButtonOut.classList.remove('d-none');
+//         window.location="/";
+//     }
+// };
 
 
-function verificarLogin(){
-    const user = sessionStorage.getItem('usuario');
-    if( user === 'login'){
-        const labelLoginContainer = document.getElementById('labelLoginContainer');
-        labelLoginContainer.classList.add('d-none');
-        const itemAdmin = document.getElementById('itemAdmin');
-        itemAdmin.classList.remove('d-none');
-        const authButton = document.getElementById('authButton');
-        authButton.classList.add('d-none');
-        const authButtonOut = document.getElementById('authButtonOut');
-        authButtonOut.classList.remove('d-none');
-    }
-}
+// function verificarLogin(){
+//     const user = sessionStorage.getItem('usuario');
+//     if( user === 'login'){
+//         const labelLoginContainer = document.getElementById('labelLoginContainer');
+//         labelLoginContainer.classList.add('d-none');
+//         const itemAdmin = document.getElementById('itemAdmin');
+//         itemAdmin.classList.remove('d-none');
+//         const authButton = document.getElementById('authButton');
+//         authButton.classList.add('d-none');
+//         const authButtonOut = document.getElementById('authButtonOut');
+//         authButtonOut.classList.remove('d-none');
+//     }
+// }
 function validateForm() {
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;

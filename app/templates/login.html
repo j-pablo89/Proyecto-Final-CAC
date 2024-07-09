@@ -4,16 +4,19 @@
             <div class="row my-3">
                 <div class="col-12">
                     <h4 class="mb-5">LOGIN</h4>
-                    <form id="formLogin">
+                    {% if error %}
+                        <p class="text-danger">{{error}}</p>
+                    {%endif%}
+                    <form id="formLogin" method="POST" action="/login">
                         <div class="mb-3">
                           <label for="inputUsuario" class="form-label">Usuario</label>
-                          <input type="text" class="form-control" id="inputUsuario" required>
+                          <input type="text" class="form-control" id="inputUsuario" name="inputUsuario" required>
                         </div>
                         <div class="mb-3">
                           <label for="inputClave" class="form-label">Contraseña</label>
-                          <input type="password" class="form-control" id="inputClave" required>
+                          <input type="password" class="form-control" id="inputClave" name="inputClave" required>
                         </div>
-                        <button type="button" class="btn btn-primary px-5" id="inputButton" onclick="loguearse()">Entrar</button>
+                        <button type="submit" class="btn btn-primary px-5" id="inputButton">Iniciar Sesion</button>
                       </form>
                 </div>
             </div>
