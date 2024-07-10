@@ -5,11 +5,12 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
             {% for item in productos %}
             <div class="col">
-                <div class="card h-100 text-center mx-auto" style="max-width: 18rem;">
+                <div class="card h-100 text-center mx-auto pt-2" style="max-width: 18rem;">
                     <img src="{{item[4]}}" class="card-img-top mx-auto" style="width: 200px;" alt="{{item[1]}}">
                     <div class="card-body">
                         <h5 class="card-title">{{item[1]}}</h5>
                         <p class="card-text">{{item[2]}}</p>
+                        <h6 class="card-text">${{item[3]}}</h6>
                     </div>
                 </div>
             </div>
