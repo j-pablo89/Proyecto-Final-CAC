@@ -26,8 +26,8 @@
                    <td>${{item[3]}}</td>
                    <td><img src="{{item[4]}}" style="width: 150px;"></td>
                    <td>
-                        <a href="/editarProducto" class="btn btn-secondary me-1">EDITAR</a>
-                        <a href="/eliminarProducto" class="btn btn-danger">ELIMINAR</a>
+                        <a href="/editarProducto/{{item[0]}}" class="btn btn-secondary me-1">EDITAR</a>
+                        <a href="/eliminarProducto/{{item[0]}}" class="btn btn-danger" onclick="if(confirm('¿Estás seguro de eliminar este producto?')) { alert('Se ha eliminado correctamente el producto'); }">ELIMINAR</a>
                    </td>
                   </tr>
                   {% endfor %}

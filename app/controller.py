@@ -21,16 +21,19 @@ def obtenerProducto():
         conexion.commit()
         conexion.close()
         return productos
-    
+
+
 def obtenerUnProducto(id):
     conexion = conectarMySQL()
     producto = None
-    with conexion.cursor() as cursor:
-        stringSQL = "SELECT * FROM productos WHERE id=%s"
-        cursor.execute(stringSQL,(id,))
-        producto = cursor.fetchone()
+    try:
+        with conexion.cursor() as cursor:
+            stringSQL = "SELECT * FROM productos WHERE idproductos=%s"
+            cursor.execute(stringSQL, (id,))
+            producto = cursor.fetchone()
+    finally:
         conexion.close()
-        return producto
+    return producto
 
 def insertarProducto(nombre,descripcion,precio,imagen_url):
     conexion = conectarMySQL()
@@ -41,3 +44,32 @@ def insertarProducto(nombre,descripcion,precio,imagen_url):
         conexion.commit()
         conexion.close()
         return result
+
+
+def updateProducto(nombre, descripcion, precio, imagen_url, id_producto):
+    try:
+        conexion = conectarMySQL()
+        with conexion.cursor() as cursor:
+            print(nombre, descripcion, precio, imagen_url, id_producto)
+            stringSQL = "UPDATE productos SET descripcion = %s, nombre = %s, precio = %s, imagen_url = %s WHERE idproductos = %s;"
+            cursor.execute(stringSQL, (descripcion, nombre, precio, imagen_url, id_producto))
+            conexion.commit()
+            conexion.close()
+            return "Producto actualizado correctamente"
+    except Exception as e:
+        print("Error al actualizar producto:", e) 
+        return "Error al actualizar producto"
+
+
+def deleteProducto(id_producto):
+    try:
+        conexion = conectarMySQL()
+        with conexion.cursor() as cursor:
+            stringSQL = "DELETE FROM productos WHERE idproductos = %s;"
+            cursor.execute(stringSQL, (id_producto))
+            conexion.commit()
+            conexion.close()
+            return "Producto eliminado correctamente"
+    except Exception as e:
+        print("Error al borrar el producto:", e) 
+        return "Error al borrar producto"
