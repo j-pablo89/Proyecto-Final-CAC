@@ -1,6 +1,7 @@
 {% include 'defaults/navbar.html'%}
 <main>
     <div class="container my-4">
+        {% if productos %}
         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
             {% for item in productos %}
             <div class="col">
@@ -12,8 +13,11 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            {% endfor %}   
         </div>
+        {%else%}
+            <h2 class="text-center display-4 text-primary">SIN PRODUCTOS CARGADOS</h2>
+        {%endif%}
     </div>
 </main>
 

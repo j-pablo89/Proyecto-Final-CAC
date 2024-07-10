@@ -3,9 +3,19 @@ from controller import *
 from werkzeug.utils import secure_filename
 from PIL import Image
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.uploader import *
+
+cloudinary.config(
+    cloud_name='dwcbtbsnr',
+    api_key='741155177263971',
+    api_secret='c_XElpCRLij9SXp60Bu_YkI4IFI'
+)
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
+#app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
 app.secret_key = os.urandom(20)
 
 @app.route("/")
@@ -86,20 +96,21 @@ def cargarProducto():
     precioProducto = request.form.get('precio')
     imagenProducto = request.files.get('imagen')
     if imagenProducto:
-        filename = secure_filename(imagenProducto.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-
-        img = Image.open(imagenProducto)
-        img = img.resize((300,300))
-        img.save(filepath)
-
-        imagen_url = url_for('static', filename=f'imagenes/{filename}')
+        upload_result = upload(imagenProducto)
+        imagen_url = upload_result['url']
+        #filename = secure_filename(imagenProducto.filename)
+        #filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        #img = Image.open(imagenProducto)
+        #img = img.resize((300,300))
+        #img.save(filepath)
+        #imagen_url = url_for('static', filename=f'imagenes/{filename}')
 
         result = insertarProducto(nombreProducto,descripcionProducto,precioProducto,imagen_url)
         print(result)
         return redirect("/administrador")
     
-    return "Error al guardar el producto"
+    else:
+        return "Sin imagen"
 
 
 @app.route('/editarProducto/<string:id>', methods=['GET','POST'])  
