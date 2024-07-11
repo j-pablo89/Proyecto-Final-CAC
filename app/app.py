@@ -19,7 +19,7 @@ cloudinary.config(
 )
 
 app = Flask(__name__)
-#app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/imagenes')
 app.secret_key = os.urandom(20)
 
 @app.route("/")
