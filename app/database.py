@@ -1,9 +1,9 @@
 import pymysql
 
 def conectarMySQL():
-    host="juanpablo21.mysql.pythonanywhere-services.com"
-    user="juanpablo21"
-    clave="admin123456"
-    db="juanpablo21$tienda_cac"
+    host="186.13.35.55"
+    user="administrador"
+    clave="Windows123++"
+    db="tienda_cac"
     return pymysql.connect(host=host,user=user,password=clave,database=db)
 
