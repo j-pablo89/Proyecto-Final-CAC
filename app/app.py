@@ -7,15 +7,15 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from cloudinary.uploader import *
-from app import controller, database
+
 
 cloudinary.config(
-    # cloud_name='dwcbtbsnr',
-    # api_key='741155177263971',
-    # api_secret='c_XElpCRLij9SXp60Bu_YkI4IFI'
-    cloud_name=os.getenv('CLOUD_NAME'),
-    api_key=os.getenv('API_KEY'),
-    api_secret=os.getenv('API_SECRET')
+    cloud_name='dwcbtbsnr',
+    api_key='741155177263971',
+    api_secret='c_XElpCRLij9SXp60Bu_YkI4IFI'
+    # cloud_name=os.getenv('CLOUD_NAME'),
+    # api_key=os.getenv('API_KEY'),
+    # api_secret=os.getenv('API_SECRET')
 )
 
 app = Flask(__name__)
