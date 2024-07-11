@@ -11,6 +11,7 @@ def loginUsuario(logUsuario, logClave):
         conexion.close()
         return usuario
 
+
 def obtenerProducto():
     conexion = conectarMySQL()
     productos = []
