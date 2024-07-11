@@ -1,5 +1,6 @@
 import pymysql
 
+
 def conectarMySQL():
     host="186.13.35.55"
     user="administrador"

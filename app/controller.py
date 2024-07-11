@@ -36,6 +36,7 @@ def obtenerUnProducto(id):
         conexion.close()
     return producto
 
+
 def insertarProducto(nombre,descripcion,precio,imagen_url):
     conexion = conectarMySQL()
     with conexion.cursor() as cursor:
