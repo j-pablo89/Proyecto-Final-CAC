@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "wsgi.py",  
+      "src": "wsgi.py",
       "use": "@vercel/python"
     }
   ],
@@ -11,5 +11,13 @@
       "src": "/(.*)",
       "dest": "wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "FLASK_ENV": "production"
+  },
+  "dependencies": {
+    "python": {
+      "flask": "^2.0.1"
+    }
+  }
 }
