@@ -7,6 +7,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from cloudinary.uploader import *
+from app import controller, database
 
 cloudinary.config(
     # cloud_name='dwcbtbsnr',

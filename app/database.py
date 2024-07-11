@@ -1,4 +1,7 @@
 import pymysql, os
+from app import controller, database
+from app import app
+# Otras importaciones necesarias
 
 
 def conectarMySQL():
