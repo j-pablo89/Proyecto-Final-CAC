@@ -12,12 +12,10 @@
       "dest": "wsgi.py"
     }
   ],
-  "env": {
-    "FLASK_ENV": "production"
-  },
   "dependencies": {
     "python": {
       "flask": "^2.0.1"
     }
   }
 }
+
