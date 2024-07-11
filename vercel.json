@@ -11,11 +11,7 @@
       "src": "/(.*)",
       "dest": "wsgi.py"
     }
-  ],
-  "dependencies": {
-    "python": {
-      "flask": "^2.0.1"
-    }
-  }
+  ]
 }
+
 
