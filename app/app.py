@@ -128,8 +128,7 @@ def editarProducto(id):
             descripcionProducto = request.form.get('descripcion')
             precioProducto = request.form.get('precio')
             imagenProducto = request.files.get('imagen')
-            
-            # Verificar si se sube una nueva imagen
+ 
             if imagenProducto and imagenProducto.filename != '':
                 filename = secure_filename(imagenProducto.filename)
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -140,10 +139,10 @@ def editarProducto(id):
 
                 imagen_url = url_for('static', filename=f'imagenes/{filename}')
             else:
-                # Mantener la URL de la imagen actual si no se sube una nueva
+           
                 imagen_url = producto[4] if producto[4] else ""
 
-            # Actualizar producto con la información nueva
+   
             result = updateProducto(nombreProducto, descripcionProducto, precioProducto, imagen_url, id)
             return redirect('/administrador')   
         else:
