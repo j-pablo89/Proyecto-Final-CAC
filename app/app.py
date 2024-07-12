@@ -128,24 +128,29 @@ def editarProducto(id):
             descripcionProducto = request.form.get('descripcion')
             precioProducto = request.form.get('precio')
             imagenProducto = request.files.get('imagen')
-            if imagenProducto:
+            
+            # Verificar si se sube una nueva imagen
+            if imagenProducto and imagenProducto.filename != '':
                 filename = secure_filename(imagenProducto.filename)
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
                 img = Image.open(imagenProducto)
-                img = img.resize((300,300))
+                img = img.resize((300, 300))
                 img.save(filepath)
 
                 imagen_url = url_for('static', filename=f'imagenes/{filename}')
             else:
-                imagen_url = ""
+                # Mantener la URL de la imagen actual si no se sube una nueva
+                imagen_url = producto[4] if producto[4] else ""
+
+            # Actualizar producto con la información nueva
             result = updateProducto(nombreProducto, descripcionProducto, precioProducto, imagen_url, id)
             return redirect('/administrador')   
         else:
             return render_template("editarProducto.html", title=title, producto=producto)
     else:
-       return redirect('/error404')   
-      
+       return redirect('/error404') 
+
 
 
 @app.route('/eliminarProducto/<string:id>')  
