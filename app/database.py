@@ -1,4 +1,4 @@
-import pymysql, os
+import pymysql
 
 # Otras importaciones necesarias
 

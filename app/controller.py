@@ -1,4 +1,3 @@
-import pymysql
 from database import conectarMySQL
 
 # Otras importaciones necesarias
